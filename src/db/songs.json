@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Dead Inside",
+    "artist": "АДЛИН",
+    "album": "Album One",
+    "duration": "3:45",
+    "cover": "/songs-img/song1.png",
+    "audio": "/songs-audio/deadInside.mp3"
+  },
+  {
+    "id": 2,
+    "title": "No Love",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "4:12",
+    "cover": "/songs-img/song2.png",
+    "audio": "/songs-audio/noLove.mp3"
+  }
+]

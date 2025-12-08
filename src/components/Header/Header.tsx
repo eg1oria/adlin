@@ -1,23 +1,20 @@
 import s from './Header.module.scss';
 import { Inter } from 'next/font/google';
-import instIcon from '../../../public/icon-inst.svg';
-import spotyIcon from '../../../public/icon-spoty.svg';
-import yIcon from '../../../public/icon-y.svg';
-import photoPlayer from '../../../public/player-photo.png';
-import prevIcon from '../../../public/icon-prev.svg';
-
-import playIcon from '../../../public/icon-play.svg';
-
-import nextIcon from '../../../public/icon-next.png';
-
-import arrayIcon from '../../../public/Group 108.svg';
+import instIcon from '../../../public/icons/icon-inst.svg';
+import spotyIcon from '../../../public/icons/icon-spoty.svg';
+import yIcon from '../../../public/icons/icon-y.svg';
+import prevIcon from '../../../public/icons/icon-prev.svg';
+import playIcon from '../../../public/icons/icon-play.svg';
+import nextIcon from '../../../public/icons/icon-next.png';
+import arrayIcon from '../../../public/icons/icon-array.svg';
 import Image from 'next/image';
+import songs from '../../db/songs.json';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], // по желанию
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 export default function Header() {
@@ -48,7 +45,13 @@ export default function Header() {
           </div>
 
           <div className={s.header_player_top}>
-            <Image src={photoPlayer} alt="Player Photo" />
+            <Image
+              key={songs[0].id}
+              src={songs[0].cover}
+              alt="Player Photo"
+              width={60}
+              height={60}
+            />
             <div className={s.header_player_info}>
               <span className={s.header_player_info_title}>Song Title</span>
               <span className={s.header_player_info_artist}>Artist Name</span>

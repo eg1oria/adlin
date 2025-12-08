@@ -1,0 +1,120 @@
+.music {
+  width: 100%;
+  background: linear-gradient(180deg, #161616 0%, #333333 100%);
+
+  &_tags {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+
+    &_tag {
+      color: white;
+    }
+  }
+
+  &_content {
+    &_sup {
+      color: #7d7d7d;
+      font-size: 20px;
+      margin: 30px 0 0 0;
+      width: 100%;
+      text-align: center;
+    }
+    &_songs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 30px 20px;
+      gap: 20px;
+
+      &_item {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+
+        &_info {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          &_name {
+            color: #aeaeae;
+            font-size: 20px;
+          }
+
+          &_artist {
+            color: #7d7d7db7;
+
+            font-weight: bold;
+          }
+        }
+        &_durationc {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          width: 100%;
+        }
+
+        &_duration {
+          color: #7d7d7d;
+          font-size: 12px;
+          padding: 0 0 5px 0;
+        }
+      }
+    }
+    &_albums {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      &_list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 50px;
+        padding: 0 20px;
+
+        &_item {
+          display: flex;
+          flex-direction: column;
+
+          &_image {
+            width: 100%;
+            display: flex;
+
+            &_url {
+              width: 100%;
+            }
+          }
+
+          &_title {
+            color: white;
+            font-size: 20px;
+            margin: 0;
+            font-weight: bold;
+          }
+
+          &_infos {
+            display: flex;
+            justify-content: space-between;
+            color: #7d7d7d;
+          }
+        }
+      }
+
+      &_filter {
+        display: flex;
+        gap: 40px;
+
+        &_item {
+          color: #7d7d7d;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 33px 42px;
+}
+
+
