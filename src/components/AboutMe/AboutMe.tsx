@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import s from './AboutMe.module.scss';
 import aboutTitle from '../../../public/util/adlinp.png';
@@ -5,11 +7,12 @@ import spotyIcon from '../../../public/icons/icon-spoty.svg';
 import yIcon from '../../../public/icons/icon-y.svg';
 import { FaPlay } from 'react-icons/fa';
 import song from '../../../public/songs-img/song6.png';
-import photoPlayer from '../../../public/util/center-img.png';
 import prevIcon from '../../../public/icons/icon-prev.svg';
 import nextIcon from '../../../public/icons/icon-next.png';
+import { useAudio } from '@/contexts/AydioContext';
 
 export default function AboutMe() {
+  const { currentTrack } = useAudio();
   return (
     <div className={s.about}>
       <div className={s.about_container}>
@@ -95,11 +98,20 @@ export default function AboutMe() {
             </ul>
           </div>
           <div className={s.about_content_center}>
-            <Image src={photoPlayer} alt="Center Image" className={s.about_content_center_image} />
+            <div className={s.imageWrapper}>
+              <Image
+                src={currentTrack?.cover || '/util/fallback.png'}
+                alt="Center Image"
+                fill
+                className={s.about_content_center_image}
+              />
+            </div>
             <div className={s.about_content_center_names}>
-              <p className={s.about_content_center_names_title}>Song name</p>
-              <p className={s.about_content_center_names_artist}>АДЛИН</p>
-              <span className={s.about_content_center_names_duration}>1:07</span>
+              <p className={s.about_content_center_names_title}>{currentTrack?.title}</p>
+              <p className={s.about_content_center_names_artist}>{currentTrack?.artist}</p>
+              <span className={s.about_content_center_names_duration}>
+                {currentTrack?.duration}
+              </span>
             </div>
             <div className={s.about_content_center_controls}>
               <button className={s.about_content_center_button}>

@@ -1,3 +1,5 @@
+'use client';
+
 import s from './MyMusic.module.scss';
 import albumImg from '../../../public/util/album-img.png';
 import Image from 'next/image';
@@ -42,8 +44,12 @@ export default function MyMusic() {
           <ul className={s.music_content_songs}>
             {songs.map((song) => (
               <li key={song.id} className={s.music_content_songs_item}>
-                <Image src={song.cover} alt="Song Image" width={60} height={60} />
-                <AudioPlayer src={song.audio} title={song.title} artist={song.artist} />
+                <AudioPlayer
+                  src={song.audio}
+                  title={song.title}
+                  artist={song.artist}
+                  cover={song.cover}
+                />
               </li>
             ))}
           </ul>

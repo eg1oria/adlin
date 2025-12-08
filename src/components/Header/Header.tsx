@@ -9,6 +9,7 @@ import nextIcon from '../../../public/icons/icon-next.png';
 import arrayIcon from '../../../public/icons/icon-array.svg';
 import Image from 'next/image';
 import songs from '../../db/songs.json';
+import { useAudio } from '@/contexts/AydioContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,6 +19,15 @@ const inter = Inter({
 });
 
 export default function Header() {
+  const { currentTrack, isPlaying, setIsPlaying } = useAudio();
+
+  function handleToogle() {
+    if (isPlaying) {
+      setIsPlaying(false);
+    } else {
+      setIsPlaying(true);
+    }
+  }
   return (
     <header className={`${s.header} ${inter.className}`}>
       <div className={s.container}>
@@ -47,14 +57,18 @@ export default function Header() {
           <div className={s.header_player_top}>
             <Image
               key={songs[0].id}
-              src={songs[0].cover}
+              src={currentTrack?.cover || '/util/fallback.png'}
               alt="Player Photo"
               width={60}
               height={60}
             />
             <div className={s.header_player_info}>
-              <span className={s.header_player_info_title}>Song Title</span>
-              <span className={s.header_player_info_artist}>Artist Name</span>
+              <span className={s.header_player_info_title}>
+                {currentTrack?.title || 'Song Title'}
+              </span>
+              <span className={s.header_player_info_artist}>
+                {currentTrack?.artist || 'Artist Name'}
+              </span>
             </div>
           </div>
           <div className={s.header_player_controls}>
@@ -62,7 +76,7 @@ export default function Header() {
               <button className={s.header_player_button}>
                 <Image src={prevIcon} alt="Previous" />
               </button>
-              <button className={s.header_player_button_play}>
+              <button className={s.header_player_button_play} onClick={handleToogle}>
                 <Image src={playIcon} alt="Play" />
               </button>
               <button className={s.header_player_button}>

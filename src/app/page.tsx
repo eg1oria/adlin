@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import concert from '../../public/util/CONCERT.png';
 import MyMusic from '@/components/MyMusic/MyMusic';
 import Footer from '@/components/Footer/Footer';
+import { AudioProvider } from '@/contexts/AydioContext';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(true);
@@ -36,24 +37,26 @@ export default function Home() {
 
   return (
     <main>
-      <header className={`header ${isVisible ? 'hide' : 'show'}`}>
-        <Header />
-      </header>
+      <AudioProvider>
+        <header className={`header ${isVisible ? 'hide' : 'show'}`}>
+          <Header />
+        </header>
 
-      <Main />
+        <Main />
 
-      <div id="stop-header">
-        <AboutMe />
-      </div>
-      <Image
-        src={concert}
-        alt="Concert"
-        style={{
-          width: '100%',
-        }}
-      />
-      <MyMusic />
-      <Footer />
+        <div id="stop-header">
+          <AboutMe />
+        </div>
+        <Image
+          src={concert}
+          alt="Concert"
+          style={{
+            width: '100%',
+          }}
+        />
+        <MyMusic />
+        <Footer />
+      </AudioProvider>
     </main>
   );
 }

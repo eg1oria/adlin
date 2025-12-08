@@ -233,3 +233,13 @@
     }
   }
 }
+
+.imageWrapper {
+  position: relative;
+  width: 400px;
+  height: 100%;
+}
+
+.about_content_center_image {
+  object-fit: cover;
+}
