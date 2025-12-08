@@ -18,6 +18,7 @@ export default function AudioPlayer({ src, title, artist, cover }: AudioPlayerPr
     setCurrentTrack,
     isPlaying: globalIsPlaying,
     setIsPlaying: setGlobalIsPlaying,
+    formatTime,
   } = useAudio();
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -63,13 +64,6 @@ export default function AudioPlayer({ src, title, artist, cover }: AudioPlayerPr
       setCurrentTrack({ title, artist, cover, audio: src, duration: formatTime(duration) });
       setGlobalIsPlaying(true);
     }
-  };
-
-  const formatTime = (time: number) => {
-    if (isNaN(time)) return '0:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
   return (

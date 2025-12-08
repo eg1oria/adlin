@@ -13,6 +13,11 @@ interface AudioContextType {
   setCurrentTrack: (track: CurrentTrack) => void;
   isPlaying: boolean;
   setIsPlaying: (playing: boolean) => void;
+  currentTime: number;
+  setCurrentTime: (time: number) => void;
+  duration: number;
+  setDuration: (duration: number) => void;
+  formatTime: (seconds: number) => string;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -20,9 +25,29 @@ const AudioContext = createContext<AudioContextType | undefined>(undefined);
 export function AudioProvider({ children }: { children: ReactNode }) {
   const [currentTrack, setCurrentTrack] = useState<CurrentTrack | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const formatTime = (seconds: number): string => {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
 
   return (
-    <AudioContext.Provider value={{ currentTrack, setCurrentTrack, isPlaying, setIsPlaying }}>
+    <AudioContext.Provider
+      value={{
+        currentTrack,
+        setCurrentTrack,
+        isPlaying,
+        setIsPlaying,
+        currentTime,
+        setCurrentTime,
+        duration,
+        setDuration,
+        formatTime,
+      }}>
       {children}
     </AudioContext.Provider>
   );

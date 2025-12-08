@@ -14,7 +14,7 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:07",
-    "cover": "/songs-img/song2.png",
+    "cover": "/songs-img/song5.png",
     "audio": "/songs-audio/noLove.mp3"
   },
   {
@@ -23,7 +23,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:04",
-    "cover": "/songs-img/song3.png",
+    "cover": "/songs-img/song1.png",
     "audio": "/songs-audio/odna.mp3"
   },
   {
@@ -32,7 +32,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "2:17",
-    "cover": "/songs-img/song4.png",
+    "cover": "/songs-img/song10.png",
     "audio": "/songs-audio/ex.mp3"
   },
   {
@@ -41,7 +41,7 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:49",
-    "cover": "/songs-img/song5.png",
+    "cover": "/songs-img/song2.png",
     "audio": "/songs-audio/zachem.mp3"
   },
   {
@@ -50,7 +50,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "2:42",
-    "cover": "/songs-img/song6.png",
+    "cover": "/songs-img/song11.png",
     "audio": "/songs-audio/airport.mp3"
   },
   {
@@ -59,7 +59,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:34",
-    "cover": "/songs-img/song7.png",
+    "cover": "/songs-img/song3.png",
     "audio": "/songs-audio/chuvstva.mp3"
   },
   {
