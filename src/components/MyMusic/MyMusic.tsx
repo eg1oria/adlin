@@ -1,9 +1,9 @@
 'use client';
 
 import s from './MyMusic.module.scss';
-import albumImg from '../../../public/util/album-img.png';
 import Image from 'next/image';
 import songs from '../../db/songs.json';
+import albums from '../../db/albums.json';
 import AudioPlayer from './AudioPlayer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import Link from 'next/link';
 
 export default function MyMusic() {
   const songsSlide1 = songs.slice(0, 9);
@@ -32,21 +33,30 @@ export default function MyMusic() {
               <li className={s.music_content_albums_filter_item}>Синглы</li>
             </ul>
             <div className={s.music_content_albums_list}>
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className={s.music_content_albums_list_item}>
-                  <div className={s.music_content_albums_list_item_image}>
-                    <Image
-                      src={albumImg}
-                      alt="Album Image"
-                      className={s.music_content_albums_list_item_image_url}
-                    />
+              {albums.map((album) => (
+                <Link
+                  href={`/${album.id}`}
+                  key={album.id}
+                  className={s.music_content_albums_list_item}>
+                  <div key={album.id} className={s.music_content_albums_list_item}>
+                    <div className={s.music_content_albums_list_item_image}>
+                      <Image
+                        src={album.cover}
+                        alt="Album Image"
+                        className={s.music_content_albums_list_item_image_url}
+                        width={500}
+                        height={500}
+                      />
+                    </div>
+                    <p className={s.music_content_albums_list_item_title}>{album.title}</p>
+                    <div className={s.music_content_albums_list_item_infos}>
+                      <p className={s.music_content_albums_list_item_year}>{album.year}</p>
+                      <span className={s.music_content_albums_list_item_count}>
+                        {album.tracks.length} треков
+                      </span>
+                    </div>
                   </div>
-                  <p className={s.music_content_albums_list_item_title}>Album Title</p>
-                  <div className={s.music_content_albums_list_item_infos}>
-                    <p className={s.music_content_albums_list_item_year}>2022 • Альбом</p>
-                    <span className={s.music_content_albums_list_item_count}>13 треков</span>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

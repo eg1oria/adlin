@@ -5,7 +5,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:05",
-    "cover": "/songs-img/song1.png",
+    "cover": "/songs-img/songs10.png",
     "audio": "/songs-audio/deadInside.mp3"
   },
   {
@@ -14,7 +14,7 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:07",
-    "cover": "/songs-img/song5.png",
+    "cover": "/songs-img/songs7.png",
     "audio": "/songs-audio/noLove.mp3"
   },
   {
@@ -23,7 +23,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:04",
-    "cover": "/songs-img/song1.png",
+    "cover": "/songs-img/songs9.png",
     "audio": "/songs-audio/odna.mp3"
   },
   {
@@ -32,7 +32,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "2:17",
-    "cover": "/songs-img/song10.png",
+    "cover": "/songs-img/songs3.png",
     "audio": "/songs-audio/ex.mp3"
   },
   {
@@ -41,7 +41,7 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:49",
-    "cover": "/songs-img/song2.png",
+    "cover": "/songs-img/songs2.png",
     "audio": "/songs-audio/zachem.mp3"
   },
   {
@@ -50,7 +50,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "2:42",
-    "cover": "/songs-img/song11.png",
+    "cover": "/songs-img/songs4.png",
     "audio": "/songs-audio/airport.mp3"
   },
   {
@@ -59,7 +59,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:34",
-    "cover": "/songs-img/song3.png",
+    "cover": "/songs-img/songs1.png",
     "audio": "/songs-audio/chuvstva.mp3"
   },
   {
@@ -68,7 +68,7 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:45",
-    "cover": "/songs-img/song8.png",
+    "cover": "/songs-img/songs6.png",
     "audio": "/songs-audio/zima.mp3"
   },
   {
@@ -77,7 +77,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "2:55",
-    "cover": "/songs-img/song9.png",
+    "cover": "/songs-img/songs5.png",
     "audio": "/songs-audio/zabivai.mp3"
   },
   {
@@ -86,7 +86,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "4:20",
-    "cover": "/songs-img/song11.png",
+    "cover": "/songs-img/songs11.jpg",
     "audio": "/songs-audio/lockskreen.mp3"
   },
   {
@@ -95,7 +95,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:14",
-    "cover": "/songs-img/song2.png",
+    "cover": "/songs-img/songs12.jpg",
     "audio": "/songs-audio/nevWorld.mp3"
   },
   {
@@ -104,7 +104,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "1:52",
-    "cover": "/songs-img/song5.png",
+    "cover": "/songs-img/songs13.jpg",
     "audio": "/songs-audio/nepravilno.mp3"
   },
   {
@@ -113,7 +113,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:09",
-    "cover": "/songs-img/song1.png",
+    "cover": "/songs-img/songs14.jpg",
     "audio": "/songs-audio/broken.mp3"
   },
   {
@@ -122,7 +122,7 @@
     "artist": "АДЛИН",
     "album": "Album One",
     "duration": "2:08",
-    "cover": "/songs-img/song1.png",
+    "cover": "/songs-img/songs8.png",
     "audio": "/songs-audio/ostansa.mp3"
   },
   {
@@ -131,7 +131,7 @@
     "artist": "АДЛИН",
     "album": "Album Three",
     "duration": "2:49",
-    "cover": "/songs-img/song11.png",
+    "cover": "/songs-img/songs15.jpg",
     "audio": "/songs-audio/perestal.mp3"
   },
   {
@@ -140,7 +140,25 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:12",
-    "cover": "/songs-img/song9.png",
+    "cover": "/songs-img/songs16.jpg",
     "audio": "/songs-audio/destruction.mp3"
+  },
+  {
+    "id": 17,
+    "title": "Ночь",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:15",
+    "cover": "/songs-img/songs17.jpg",
+    "audio": "/songs-audio/noch.mp3"
+  },
+  {
+    "id": 18,
+    "title": "Мегаполис",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/songs-img/songs18.jpg",
+    "audio": "/songs-audio/megapolis.mp3"
   }
 ]

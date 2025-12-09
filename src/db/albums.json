@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Album One",
+    "year": 2022,
+    "type": "album",
+    "cover": "/album-img/album1.png",
+    "tracks": [1, 5, 7, 12]
+  },
+  {
+    "id": 2,
+    "title": "Album One",
+    "year": 2022,
+    "type": "album",
+    "cover": "/album-img/album2.png",
+    "tracks": [1, 4, 12]
+  },
+  {
+    "id": 3,
+    "title": "Album One",
+    "year": 2022,
+    "type": "album",
+    "cover": "/album-img/album3.png",
+    "tracks": [1, 4, 7, 2]
+  },
+  {
+    "id": 4,
+    "title": "Album One",
+    "year": 2022,
+    "type": "album",
+    "cover": "/album-img/album4.png",
+    "tracks": [13, 7, 12]
+  }
+]
