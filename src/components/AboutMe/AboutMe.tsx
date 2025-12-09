@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import s from './AboutMe.module.scss';
 import aboutTitle from '../../../public/util/adlinp.png';
@@ -17,105 +17,69 @@ export default function AboutMe() {
   const {
     currentTrack,
     isPlaying,
-    setIsPlaying,
-    setCurrentTrack,
     currentTime,
-    setCurrentTime,
     duration,
-    setDuration,
     formatTime,
+    togglePlay,
+    playTrack,
+    seekTo,
   } = useAudio();
 
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
   const topSongs = songs.slice(0, 5);
 
-  // Синхронизация audio элемента с состоянием
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || !currentTrack) return;
-
-    if (isPlaying) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }, [isPlaying, currentTrack]);
-
-  // Обновление времени и длительности
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || !currentTrack) return;
-
-    const handleTimeUpdate = () => {
-      setCurrentTime(audio.currentTime);
-    };
-
-    const handleLoadedMetadata = () => {
-      setDuration(audio.duration);
-    };
-
-    const handleEnded = () => {
-      setIsPlaying(false);
-      setCurrentTime(0);
-    };
-
-    audio.addEventListener('timeupdate', handleTimeUpdate);
-    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
-    audio.addEventListener('ended', handleEnded);
-
-    return () => {
-      audio.removeEventListener('timeupdate', handleTimeUpdate);
-      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      audio.removeEventListener('ended', handleEnded);
-    };
-  }, [currentTrack, setCurrentTime, setDuration, setIsPlaying]);
-
-  // Включить случайный трек
-  const handlePlayRandomTrack = () => {
-    if (isPlaying && currentTrack) {
-      setIsPlaying(false);
-    } else if (!isPlaying && currentTrack) {
-      setIsPlaying(true);
-    } else {
-      const randomIndex = Math.floor(Math.random() * songs.length);
-      const randomSong = songs[randomIndex];
-
-      setCurrentTrack({
-        title: randomSong.title,
-        artist: randomSong.artist,
-        cover: randomSong.cover,
-        audio: randomSong.audio,
-        duration: randomSong.duration || '0:00',
-      });
-      setIsPlaying(true);
-    }
-  };
-
-  // Переключение play/pause для центрального плеера
   const handleCenterPlayPause = () => {
+    const randomTrack = Math.floor(Math.random() * 5) + 1;
     if (currentTrack) {
-      setIsPlaying(!isPlaying);
+      togglePlay();
+    } else {
+      const first = topSongs[randomTrack];
+      if (first)
+        playTrack({
+          title: first.title,
+          artist: first.artist,
+          cover: first.cover,
+          audio: first.audio,
+        });
     }
   };
 
-  // Перемотка трека по клику на прогресс-бар
   const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!audioRef.current || duration === 0) return;
-
+    if (!duration) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
-    const percentage = (clickX / rect.width) * 100;
-    const newTime = (percentage / 100) * duration;
-
-    audioRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
+    const newTime = (clickX / rect.width) * duration;
+    seekTo(newTime);
   };
+
+  function handlePrev() {
+    if (!currentTrack) return;
+
+    const currentIndex = songs.findIndex((i) => i.audio === currentTrack.audio);
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex - 1) % songs.length;
+    if (nextIndex === -1) return;
+    const nextTrack = songs[nextIndex];
+    playTrack(nextTrack);
+  }
+
+  function handleNext() {
+    if (!currentTrack) return;
+
+    const currentIndex = songs.findIndex((t) => t.audio === currentTrack.audio);
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex + 1) % songs.length;
+    const nextTrack = songs[nextIndex];
+    playTrack(nextTrack);
+  }
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
     <div className={s.about}>
-      {/* Скрытый audio элемент для воспроизведения */}
       {currentTrack && <audio ref={audioRef} src={currentTrack.audio} preload="metadata" />}
 
       <div className={s.about_container}>
@@ -131,7 +95,7 @@ export default function AboutMe() {
             <p className={s.about_infoBlock_name}>ADLIN</p>
             <p className={s.about_infoBlock_count}>1 982 567 слушателей в месяц</p>
             <div className={s.about_infoBlock_buttons}>
-              <button className={s.about_infoBlock_buttonPlay} onClick={handlePlayRandomTrack}>
+              <button className={s.about_infoBlock_buttonPlay} onClick={handleCenterPlayPause}>
                 {isPlaying && currentTrack ? <FaPause size={15} /> : <FaPlay size={15} />}
                 {isPlaying && currentTrack ? 'Пауза' : 'Слушать'}
               </button>
@@ -163,7 +127,7 @@ export default function AboutMe() {
           <div className={s.about_content_center}>
             <div className={s.imageWrapper}>
               <Image
-                src={currentTrack?.cover || '/util/fallback.png'}
+                src={currentTrack?.cover || '/util/fallback.webp'}
                 alt="Center Image"
                 fill
                 className={s.about_content_center_image}
@@ -183,20 +147,11 @@ export default function AboutMe() {
                   color: '#999',
                   margin: '15px 0 0 0',
                 }}>
-                <span>{formatTime ? formatTime(currentTime) : '0:00'}</span>
-                <span>{formatTime ? formatTime(duration) : '0:00'}</span>
+                <span>{formatTime(currentTime)}</span>
+                <span>{formatTime(duration)}</span>
               </div>
-              <div
-                onClick={handleSeek}
-                style={{
-                  width: '100%',
-                  height: '4px',
-                  backgroundColor: '#333',
-                  borderRadius: '2px',
-                  margin: '10px 0 0 0',
-                  cursor: 'pointer',
-                  position: 'relative',
-                }}>
+
+              <div onClick={handleSeek} className={s.progressBarCont}>
                 <div
                   style={{
                     width: `${progress}%`,
@@ -208,14 +163,29 @@ export default function AboutMe() {
                 />
               </div>
             </div>
+
             <div className={s.about_content_center_controls}>
-              <button className={s.about_content_center_button}>
+              <button className={s.about_content_center_button} onClick={handlePrev}>
                 <Image src={prevIcon} alt="prevIcon" />
               </button>
               <button className={s.about_content_center_button} onClick={handleCenterPlayPause}>
-                {isPlaying && currentTrack ? <FaPause size={20} /> : <FaPlay size={20} />}
+                {isPlaying && currentTrack ? (
+                  <FaPause
+                    size={20}
+                    style={{
+                      color: 'white',
+                    }}
+                  />
+                ) : (
+                  <FaPlay
+                    size={20}
+                    style={{
+                      color: 'white',
+                    }}
+                  />
+                )}
               </button>
-              <button className={s.about_content_center_button}>
+              <button className={s.about_content_center_button} onClick={handleNext}>
                 <Image src={nextIcon} alt="nextIcon" />
               </button>
             </div>

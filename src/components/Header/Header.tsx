@@ -4,12 +4,11 @@ import instIcon from '../../../public/icons/icon-inst.svg';
 import spotyIcon from '../../../public/icons/icon-spoty.svg';
 import yIcon from '../../../public/icons/icon-y.svg';
 import prevIcon from '../../../public/icons/icon-prev.svg';
-import playIcon from '../../../public/icons/icon-play.svg';
 import nextIcon from '../../../public/icons/icon-next.png';
-import arrayIcon from '../../../public/icons/icon-array.svg';
 import Image from 'next/image';
 import songs from '../../db/songs.json';
 import { useAudio } from '@/contexts/AydioContext';
+import { FaPause, FaPlay } from 'react-icons/fa';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,15 +18,58 @@ const inter = Inter({
 });
 
 export default function Header() {
-  const { currentTrack, isPlaying, setIsPlaying } = useAudio();
+  const { currentTrack, togglePlay, playTrack, isPlaying, currentTime, duration, seekTo } =
+    useAudio();
 
-  function handleToogle() {
-    if (isPlaying) {
-      setIsPlaying(false);
-    } else {
-      setIsPlaying(true);
-    }
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const newTime = (clickX / rect.width) * duration;
+    seekTo(newTime);
+  };
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+
+  const topSongs = songs.slice(0, 5);
+
+  function handlePrev() {
+    if (!currentTrack) return;
+
+    const currentIndex = songs.findIndex((i) => i.audio === currentTrack.audio);
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex - 1) % songs.length;
+    if (nextIndex === -1) return;
+    const nextTrack = songs[nextIndex];
+    playTrack(nextTrack);
   }
+
+  function handleNext() {
+    if (!currentTrack) return;
+
+    const currentIndex = songs.findIndex((t) => t.audio === currentTrack.audio);
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex + 1) % songs.length;
+    const nextTrack = songs[nextIndex];
+    playTrack(nextTrack);
+  }
+  const handlePlay = () => {
+    const randomSong = Math.floor(Math.random() * 5) + 1;
+    if (currentTrack) {
+      togglePlay();
+    } else {
+      const first = topSongs[randomSong];
+
+      if (first)
+        playTrack({
+          title: first.title,
+          artist: first.artist,
+          cover: first.cover,
+          audio: first.audio,
+        });
+    }
+  };
   return (
     <header className={`${s.header} ${inter.className}`}>
       <div className={s.container}>
@@ -50,14 +92,10 @@ export default function Header() {
           </ul>
         </nav>
         <div className={s.header_player}>
-          <div className={s.header_player_circle}>
-            <Image className={s.header_player_circle_icon} src={arrayIcon} alt="Array Icon" />
-          </div>
-
           <div className={s.header_player_top}>
             <Image
               key={songs[0].id}
-              src={currentTrack?.cover || '/util/fallback.png'}
+              src={currentTrack?.cover || '/util/fallback.webp'}
               alt="Player Photo"
               width={60}
               height={60}
@@ -73,23 +111,27 @@ export default function Header() {
           </div>
           <div className={s.header_player_controls}>
             <div className={s.header_player_buttons}>
-              <button className={s.header_player_button}>
+              <button className={s.header_player_button} onClick={handlePrev}>
                 <Image src={prevIcon} alt="Previous" />
               </button>
-              <button className={s.header_player_button_play} onClick={handleToogle}>
-                <Image src={playIcon} alt="Play" />
+              <button className={s.header_player_button} onClick={handlePlay}>
+                {isPlaying && currentTrack ? <FaPause size={15} /> : <FaPlay size={15} />}
               </button>
-              <button className={s.header_player_button}>
+              <button className={s.header_player_button} onClick={handleNext}>
                 <Image src={nextIcon} alt="Next" />
               </button>
             </div>
-            <input
-              type="range"
-              className={s.header_player_slider}
-              min="0"
-              max="100"
-              defaultValue="50"
-            />
+            <div onClick={handleSeek} className={s.progressBarCont}>
+              <div
+                style={{
+                  width: `${progress}%`,
+                  height: '100%',
+                  backgroundColor: '#1d68b9ff',
+                  borderRadius: '2px',
+                  transition: 'width 0.1s linear',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

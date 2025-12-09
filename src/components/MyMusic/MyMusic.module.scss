@@ -26,12 +26,12 @@
       padding: 30px 20px;
       gap: 20px;
 
+      position: relative;
+
       &_item {
         display: flex;
         width: 100%;
         gap: 20px;
-
-        
 
         &_info {
           display: flex;
@@ -117,4 +117,36 @@
 .container {
   width: 100%;
   padding: 33px 42px;
+}
+.songsRelative {
+  position: relative;
+}
+
+.customPrev,
+.customNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  color: white;
+  padding: 7px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.customPrev:hover,
+.customNext:hover {
+  background-color: rgba(0, 0, 0, 0.32);
+}
+
+.customPrev {
+  left: -40px;
+}
+
+.customNext {
+  right: -40px;
 }

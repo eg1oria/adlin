@@ -1,9 +1,9 @@
+// src/components/MyMusic/AudioPlayer.tsx
 'use client';
-
-import { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import s from './AudioPlayer.module.scss';
-import { useAudio } from '@/contexts/AydioContext';
 import Image from 'next/image';
+import { useAudio } from '@/contexts/AydioContext';
 
 interface AudioPlayerProps {
   src: string;
@@ -13,64 +13,24 @@ interface AudioPlayerProps {
 }
 
 export default function AudioPlayer({ src, title, artist, cover }: AudioPlayerProps) {
-  const {
-    currentTrack,
-    setCurrentTrack,
-    isPlaying: globalIsPlaying,
-    setIsPlaying: setGlobalIsPlaying,
-    formatTime,
-  } = useAudio();
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const { currentTrack, isPlaying, currentTime, duration, formatTime, playTrack, togglePlay } =
+    useAudio();
 
-  const isThisTrackPlaying = globalIsPlaying && currentTrack?.audio === src;
+  const isThisTrackPlaying = isPlaying && currentTrack?.audio === src;
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const updateTime = () => setCurrentTime(audio.currentTime);
-    const updateDuration = () => setDuration(audio.duration);
-    const handleEnded = () => setGlobalIsPlaying(false);
-
-    audio.addEventListener('timeupdate', updateTime);
-    audio.addEventListener('loadedmetadata', updateDuration);
-    audio.addEventListener('ended', handleEnded);
-
-    return () => {
-      audio.removeEventListener('timeupdate', updateTime);
-      audio.removeEventListener('loadedmetadata', updateDuration);
-      audio.removeEventListener('ended', handleEnded);
-    };
-  }, [setGlobalIsPlaying]);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (isThisTrackPlaying) {
-      audio.play().catch((err) => console.error('Play error:', err));
+  const handleClick = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    if (currentTrack?.audio === src) {
+      togglePlay();
     } else {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-  }, [isThisTrackPlaying]);
-
-  const togglePlay = () => {
-    if (isThisTrackPlaying) {
-      setGlobalIsPlaying(false);
-    } else {
-      setCurrentTrack({ title, artist, cover, audio: src, duration: formatTime(duration) });
-      setGlobalIsPlaying(true);
+      playTrack({ title, artist, cover, audio: src });
     }
   };
 
   return (
     <div className={s.player}>
-      <audio ref={audioRef} src={src} preload="metadata" />
       <button
-        onClick={togglePlay}
+        onClick={handleClick}
         className={`${s.playButton} ${isThisTrackPlaying ? s.playing : ''}`}>
         <Image src={cover} alt="Song Image" width={60} height={60} />
         <div className={s.info}>
@@ -79,8 +39,10 @@ export default function AudioPlayer({ src, title, artist, cover }: AudioPlayerPr
         </div>
 
         <div className={s.controls}>
-          <span className={s.time}>{formatTime(currentTime)}</span>/
-          <span className={s.time}>{formatTime(duration)}</span>
+          <span className={s.time}>{isThisTrackPlaying ? formatTime(currentTime) : '0:00'}-:-</span>
+          <span className={s.time}>
+            {isThisTrackPlaying ? formatTime(duration) : formatTime(0)}
+          </span>
         </div>
       </button>
     </div>
