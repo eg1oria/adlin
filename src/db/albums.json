@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Album One",
+    "title": "Музыка мой дом",
     "year": 2022,
     "author": "ADLIN",
     "type": "Альбом",
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "title": "Album One",
+    "title": "PHUCKED UP",
     "author": "ADLIN",
     "year": 2022,
     "type": "Альбом",
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "title": "Album One",
+    "title": "Мир Иллюзий",
     "author": "ADLIN",
     "year": 2022,
     "type": "Альбом",
@@ -34,13 +34,13 @@
   },
   {
     "id": 4,
-    "title": "Album One",
+    "title": "Bipolar Disorder",
     "author": "ADLIN",
     "year": 2022,
     "type": "Альбом",
     "cover": "/album-img/album4.png",
     "color1": "#171b19ff",
     "color2": "#1f1920ff",
-    "tracks": [13, 7, 12]
+    "tracks": [53, 54, 55, 56, 57, 58, 59, 60, 61]
   }
 ]

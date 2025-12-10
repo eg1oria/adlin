@@ -45,9 +45,9 @@ export default async function AlbumPage({ params }: { params: Promise<{ id: stri
 
         <h2 className={s.album_text}>Треки</h2>
 
-        <ul style={{ marginTop: 20 }}>
+        <ul className={s.album_list}>
           {albumTracks.map((track, i) => (
-            <li key={track.id} style={{ marginBottom: 20 }}>
+            <li key={track.id}>
               <AudioPlayerAlbum
                 src={track.audio}
                 title={track.title}

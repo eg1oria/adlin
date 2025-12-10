@@ -466,5 +466,86 @@
     "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/А что, если уйду_.mp3"
+  },
+  {
+    "id": 53,
+    "title": "No Stress",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/No Stress.mp3"
+  },
+  {
+    "id": 54,
+    "title": "Double Cup",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Double Cup.mp3"
+  },
+  {
+    "id": 55,
+    "title": "Bipolar Disorder",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Bipolar Disorder.mp3"
+  },
+  {
+    "id": 56,
+    "title": "Bipolar Disorder Intro",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Bipolar Disorder Intro.mp3"
+  },
+  {
+    "id": 57,
+    "title": "Не могу",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Не могу.mp3"
+  },
+  {
+    "id": 58,
+    "title": "Не дети",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Не дети.mp3"
+  },
+  {
+    "id": 59,
+    "title": "Момент",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Момент.mp3"
+  },
+  {
+    "id": 60,
+    "title": "Грустный Uber",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Грустный Uber.mp3"
+  },
+  {
+    "id": 61,
+    "title": "Враг",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album4.png",
+    "audio": "/songs-audio/Враг.mp3"
   }
 ]

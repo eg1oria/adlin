@@ -4,6 +4,17 @@
   background: linear-gradient(180deg, hsl(309, 74%, 10%) 0%, #0f7863ad 100%);
   gap: 50px;
 
+  &_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+
+    background-color: #ffffff05;
+    border-radius: 12px;
+    margin: 10px 0 0 0;
+  }
+
   &_text {
     margin: 40px 0 0 0;
     font-weight: bold;
@@ -57,13 +68,13 @@
 
     &_button {
       display: flex;
-      border: 1px solid seagreen;
+      border: 1px solid rgba(46, 139, 86, 0.573);
       border-radius: 12px;
       padding: 10px 20px;
       font-weight: bold;
 
       &:hover {
-        background-color: rgba(0, 100, 0, 0.125);
+        background-color: rgba(0, 100, 0, 0.051);
       }
     }
   }

@@ -29,7 +29,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const hideAtPixels = 600;
+      const hideAtPixels = 900;
 
       if (scrollPosition >= hideAtPixels) {
         setIsVisible(false);
