@@ -257,25 +257,97 @@
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:29",
-    "cover": "/album-img/album2.png",
+    "cover": "/album-img/album3.png",
     "audio": "/songs-audio/jesus.mp3"
   },
   {
-    "id": 19,
-    "title": "Пустота",
+    "id": 30,
+    "title": "Вверх-вниз",
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:29",
-    "cover": "/album-img/album2.png",
-    "audio": "/songs-audio/pustota.mp3"
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Вверх-вниз.mp3"
   },
   {
-    "id": 19,
-    "title": "Пустота",
+    "id": 31,
+    "title": "Зависть",
     "artist": "АДЛИН",
     "album": "Album Two",
     "duration": "2:29",
-    "cover": "/album-img/album2.png",
-    "audio": "/songs-audio/pustota.mp3"
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Зависть.mp3"
+  },
+  {
+    "id": 32,
+    "title": "Мир иллюзий",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Мир иллюзий.mp3"
+  },
+  {
+    "id": 33,
+    "title": "Мувы",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Мувы.mp3"
+  },
+  {
+    "id": 34,
+    "title": "Не хочу",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Не хочу.mp3"
+  },
+  {
+    "id": 35,
+    "title": "Одно и то же",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Одно и то же.mp3"
+  },
+  {
+    "id": 36,
+    "title": "Оригами",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Оригами.mp3"
+  },
+  {
+    "id": 37,
+    "title": "Придурок",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Придурок.mp3"
+  },
+  {
+    "id": 38,
+    "title": "Эмоции",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Эмоции.mp3"
+  },
+  {
+    "id": 39,
+    "title": "Perfect World",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album3.png",
+    "audio": "/songs-audio/Perfect World.mp3"
   }
 ]
