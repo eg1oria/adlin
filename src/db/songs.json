@@ -349,5 +349,122 @@
     "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Perfect World.mp3"
+  },
+  {
+    "id": 40,
+    "title": "Perfect World",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Perfect World.mp3"
+  },
+  {
+    "id": 41,
+    "title": "Trap Teenager",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Trap Teenager.mp3"
+  },
+  {
+    "id": 42,
+    "title": "Work on This",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Work on This.mp3"
+  },
+  {
+    "id": 43,
+    "title": "Rocket",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Rocket.mp3"
+  },
+  {
+    "id": 44,
+    "title": "Feedback",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Feedback.mp3"
+  },
+  {
+    "id": 45,
+    "title": "DDOS",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/DDOS.mp3"
+  },
+  {
+    "id": 46,
+    "title": "Что ты знаешь про любовь",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Что ты знаешь про любовь_.mp3"
+  },
+  {
+    "id": 47,
+    "title": "Упустил шанс",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Упустил шанс.mp3"
+  },
+  {
+    "id": 48,
+    "title": "Суета",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Суета.mp3"
+  },
+  {
+    "id": 49,
+    "title": "Навсегда",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Навсегда.mp3"
+  },
+  {
+    "id": 50,
+    "title": "Музыка мой дом",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Музыка мой дом.mp3"
+  },
+  {
+    "id": 51,
+    "title": "Записка",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/Записка.mp3"
+  },
+  {
+    "id": 52,
+    "title": "А что, если уйду",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album1.png",
+    "audio": "/songs-audio/А что, если уйду_.mp3"
   }
 ]

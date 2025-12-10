@@ -3,9 +3,9 @@
 import songs from '../../db/songs.json';
 import albums from '../../db/albums.json';
 import Image from 'next/image';
-import AudioPlayer from '@/components/MyMusic/AudioPlayer';
 import s from './Album.module.scss';
 import Link from 'next/link';
+import AudioPlayerAlbum from '@/components/AudioPlayerAlbum/AudioPlayerAlbum';
 
 export default async function AlbumPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -46,12 +46,13 @@ export default async function AlbumPage({ params }: { params: Promise<{ id: stri
         <h2 className={s.album_text}>Треки</h2>
 
         <ul style={{ marginTop: 20 }}>
-          {albumTracks.map((track) => (
+          {albumTracks.map((track, i) => (
             <li key={track.id} style={{ marginBottom: 20 }}>
-              <AudioPlayer
+              <AudioPlayerAlbum
                 src={track.audio}
                 title={track.title}
                 artist={track.artist}
+                id={i + 1}
                 cover={track.cover}
               />
             </li>

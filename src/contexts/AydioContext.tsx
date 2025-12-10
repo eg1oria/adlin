@@ -4,9 +4,10 @@ import songs from '../db/songs.json';
 export interface CurrentTrack {
   title: string;
   artist: string;
-  cover: string;
+  cover?: string;
   audio: string;
   duration?: string;
+  id?: number;
 }
 
 interface AudioContextType {

@@ -2,8 +2,12 @@
   display: flex;
   width: 100%;
   gap: 20px;
-
   transition: background 0.1s linear;
+
+  &_id {
+    color: #ffffff8a;
+    padding: 0 10px;
+  }
   &:hover {
     background: rgba(30, 229, 243, 0.111);
   }

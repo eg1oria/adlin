@@ -1,4 +1,3 @@
-// src/components/MyMusic/AudioPlayer.tsx
 'use client';
 import React from 'react';
 import s from './AudioPlayer.module.scss';
@@ -32,7 +31,7 @@ export default function AudioPlayer({ src, title, artist, cover }: AudioPlayerPr
       <button
         onClick={handleClick}
         className={`${s.playButton} ${isThisTrackPlaying ? s.playing : ''}`}>
-        <Image src={cover} alt="Song Image" width={60} height={60} />
+        {cover ? <Image src={cover} alt="Song Image" width={60} height={60} /> : null}
         <div className={s.info}>
           <p className={s.title}>{title}</p>
           <p className={s.artist}>{artist}</p>
