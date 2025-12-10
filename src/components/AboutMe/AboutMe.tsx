@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import s from './AboutMe.module.scss';
 import aboutTitle from '../../../public/util/adlinp.png';
@@ -11,7 +10,7 @@ import prevIcon from '../../../public/icons/icon-prev.svg';
 import nextIcon from '../../../public/icons/icon-next.png';
 import { useAudio } from '@/contexts/AydioContext';
 import songs from '../../db/songs.json';
-import AudioPlayer from '../MyMusic/AudioPlayer';
+import AudioPlayer from '../AudioPlayerAlbum/AudioPlayer';
 
 export default function AboutMe() {
   const {
@@ -24,8 +23,6 @@ export default function AboutMe() {
     playTrack,
     seekTo,
   } = useAudio();
-
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const topSongs = songs.slice(0, 5);
 
@@ -80,8 +77,6 @@ export default function AboutMe() {
 
   return (
     <div className={s.about}>
-      {currentTrack && <audio ref={audioRef} src={currentTrack.audio} preload="metadata" />}
-
       <div className={s.about_container}>
         <div className={s.about_tags}>
           <p className={s.about_tag}>[ ABOUT ME ]</p>
@@ -89,7 +84,7 @@ export default function AboutMe() {
         </div>
 
         <div className={s.about_titles}>
-          <Image src={aboutTitle} alt="About Me" />
+          <Image src={aboutTitle} alt="About Me" loading="lazy" />
           <div className={s.about_infoBlock}>
             <p className={s.about_infoBlock_role}>ИСПОЛНИТЕЛЬ</p>
             <p className={s.about_infoBlock_name}>ADLIN</p>
@@ -131,6 +126,7 @@ export default function AboutMe() {
                 alt="Center Image"
                 fill
                 className={s.about_content_center_image}
+                loading="lazy"
               />
             </div>
             <div className={s.about_content_center_names}>
@@ -166,7 +162,7 @@ export default function AboutMe() {
 
             <div className={s.about_content_center_controls}>
               <button className={s.about_content_center_button} onClick={handlePrev}>
-                <Image src={prevIcon} alt="prevIcon" />
+                <Image src={prevIcon} alt="prevIcon" loading="lazy" />
               </button>
               <button className={s.about_content_center_button} onClick={handleCenterPlayPause}>
                 {isPlaying && currentTrack ? (

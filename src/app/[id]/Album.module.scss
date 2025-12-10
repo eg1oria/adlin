@@ -1,13 +1,13 @@
 .album {
   display: flex;
-  padding: 150px 100px 100px 100px;
+  padding: 130px 100px 50px 100px;
   background: linear-gradient(180deg, hsl(309, 74%, 10%) 0%, #0f7863ad 100%);
   gap: 50px;
 
   &_list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     padding: 10px;
 
     background-color: #ffffff05;

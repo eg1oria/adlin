@@ -4,7 +4,6 @@ import s from './MyMusic.module.scss';
 import Image from 'next/image';
 import songs from '../../db/songs.json';
 import albums from '../../db/albums.json';
-import AudioPlayer from './AudioPlayer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -12,6 +11,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const AudioPlayer = dynamic(() => import('../AudioPlayerAlbum/AudioPlayer'), { ssr: false });
 
 export default function MyMusic() {
   const songsSlide1 = songs.slice(0, 9);
@@ -38,7 +40,7 @@ export default function MyMusic() {
                   href={`/${album.id}`}
                   key={album.id}
                   className={s.music_content_albums_list_item}>
-                  <div key={album.id} className={s.music_content_albums_list_item}>
+                  <div className={s.music_content_albums_list_item}>
                     <div className={s.music_content_albums_list_item_image}>
                       <Image
                         src={album.cover}
@@ -46,6 +48,7 @@ export default function MyMusic() {
                         className={s.music_content_albums_list_item_image_url}
                         width={500}
                         height={500}
+                        loading="lazy"
                       />
                     </div>
                     <p className={s.music_content_albums_list_item_title}>{album.title}</p>

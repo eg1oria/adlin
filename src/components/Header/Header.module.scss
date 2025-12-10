@@ -118,3 +118,15 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.progressBar {
+  height: 100%;
+  background-color: #1d68b9ff;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.timeSeparator {
+  margin: 0 4px;
+  opacity: 0.5;
+}

@@ -11,14 +11,17 @@ import Image from 'next/image';
 import songs from '../../db/songs.json';
 import { useAudio } from '@/contexts/AydioContext';
 import { FaPause, FaPlay } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '700', '900'],
 });
+
+const TOP_SONGS_COUNT = 5;
+const SCROLL_HIDE_THRESHOLD = 780;
 
 export default function Header() {
   const { currentTrack, togglePlay, playTrack, isPlaying, currentTime, duration, seekTo } =
@@ -26,104 +29,138 @@ export default function Header() {
 
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const hideAtPixels = 900;
+  const topSongs = useMemo(() => songs.slice(0, TOP_SONGS_COUNT), []);
 
-      if (scrollPosition >= hideAtPixels) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY;
+          setIsVisible(scrollPosition < SCROLL_HIDE_THRESHOLD);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!duration) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const newTime = (clickX / rect.width) * duration;
-    seekTo(newTime);
-  };
-  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+  const handleSeek = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!duration) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const newTime = (clickX / rect.width) * duration;
+      seekTo(newTime);
+    },
+    [duration, seekTo],
+  );
 
-  const topSongs = songs.slice(0, 5);
+  const progress = useMemo(
+    () => (duration > 0 ? (currentTime / duration) * 100 : 0),
+    [currentTime, duration],
+  );
 
-  function handlePrev() {
+  const handlePrev = useCallback(() => {
     if (!currentTrack) return;
 
-    const currentIndex = songs.findIndex((i) => i.audio === currentTrack.audio);
-    if (currentIndex === -1) return;
+    const currentIndex = songs.findIndex((song) => song.audio === currentTrack.audio);
+    if (currentIndex <= 0) return;
 
-    const nextIndex = (currentIndex - 1) % songs.length;
-    if (nextIndex === -1) return;
-    const nextTrack = songs[nextIndex];
-    playTrack(nextTrack);
-  }
+    const prevIndex = currentIndex - 1;
+    const prevTrack = songs[prevIndex];
+    if (prevTrack) playTrack(prevTrack);
+  }, [currentTrack, playTrack]);
 
-  function handleNext() {
+  const handleNext = useCallback(() => {
     if (!currentTrack) return;
 
-    const currentIndex = songs.findIndex((t) => t.audio === currentTrack.audio);
+    const currentIndex = songs.findIndex((song) => song.audio === currentTrack.audio);
     if (currentIndex === -1) return;
 
     const nextIndex = (currentIndex + 1) % songs.length;
     const nextTrack = songs[nextIndex];
-    playTrack(nextTrack);
-  }
+    if (nextTrack) playTrack(nextTrack);
+  }, [currentTrack, playTrack]);
 
-  const handlePlay = () => {
-    const randomSong = Math.floor(Math.random() * 5) + 1;
+  const handlePlay = useCallback(() => {
     if (currentTrack) {
       togglePlay();
     } else {
-      const first = topSongs[randomSong];
+      const randomIndex = Math.floor(Math.random() * topSongs.length);
+      const randomSong = topSongs[randomIndex];
 
-      if (first)
+      if (randomSong) {
         playTrack({
-          title: first.title,
-          artist: first.artist,
-          cover: first.cover,
-          audio: first.audio,
+          title: randomSong.title,
+          artist: randomSong.artist,
+          cover: randomSong.cover,
+          audio: randomSong.audio,
         });
+      }
     }
-  };
+  }, [currentTrack, togglePlay, topSongs, playTrack]);
 
   return (
     <header className={`${s.header} ${inter.className} ${isVisible ? s.hide : s.show}`}>
       <div className={s.container}>
         <nav className={s.header_nav}>
           <ul className={s.header_nav_list}>
-            <li className={s.header_nav_item}>ABOUT ME</li>
-            <li className={s.header_nav_item}>MY MUSIC</li>
-            <li className={s.header_nav_item}>CONTACTS</li>
+            <li className={s.header_nav_item}>
+              <a href="#about">ABOUT ME</a>
+            </li>
+            <li className={s.header_nav_item}>
+              <a href="#music">MY MUSIC</a>
+            </li>
+            <li className={s.header_nav_item}>
+              <a href="#contacts">CONTACTS</a>
+            </li>
           </ul>
           <ul className={s.header_nav_list}>
             <li className={s.header_nav_item}>
-              <Image src={instIcon} alt="Instagram Icon" />
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram">
+                <Image src={instIcon} alt="" width={24} height={24} />
+              </a>
             </li>
             <li className={s.header_nav_item}>
-              <Image src={spotyIcon} alt="Spotify Icon" />
+              <a
+                href="https://spotify.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Spotify">
+                <Image src={spotyIcon} alt="" width={24} height={24} />
+              </a>
             </li>
             <li className={s.header_nav_item}>
-              <Image src={yIcon} alt="yIcon" />
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube">
+                <Image src={yIcon} alt="" width={24} height={24} />
+              </a>
             </li>
           </ul>
         </nav>
+
         <div className={s.header_player}>
           <div className={s.header_player_top}>
             <Image
-              key={songs[0].id}
               src={currentTrack?.cover || '/util/fallback.webp'}
-              alt="Player Photo"
+              alt={currentTrack?.title || 'No track'}
               width={60}
               height={60}
+              priority
             />
             <div className={s.header_player_info}>
               <span className={s.header_player_info_title}>
@@ -134,28 +171,33 @@ export default function Header() {
               </span>
             </div>
           </div>
+
           <div className={s.header_player_controls}>
             <div className={s.header_player_buttons}>
-              <button className={s.header_player_button} onClick={handlePrev}>
-                <Image src={prevIcon} alt="Previous" />
+              <button
+                className={s.header_player_button}
+                onClick={handlePrev}
+                aria-label="Previous track"
+                disabled={!currentTrack}>
+                <Image src={prevIcon} alt="" width={20} height={20} />
               </button>
-              <button className={s.header_player_button} onClick={handlePlay}>
+              <button
+                className={s.header_player_button}
+                onClick={handlePlay}
+                aria-label={isPlaying ? 'Pause' : 'Play'}>
                 {isPlaying && currentTrack ? <FaPause size={15} /> : <FaPlay size={15} />}
               </button>
-              <button className={s.header_player_button} onClick={handleNext}>
-                <Image src={nextIcon} alt="Next" />
+              <button
+                className={s.header_player_button}
+                onClick={handleNext}
+                aria-label="Next track"
+                disabled={!currentTrack}>
+                <Image src={nextIcon} alt="" width={20} height={20} />
               </button>
             </div>
-            <div onClick={handleSeek} className={s.progressBarCont}>
-              <div
-                style={{
-                  width: `${progress}%`,
-                  height: '100%',
-                  backgroundColor: '#1d68b9ff',
-                  borderRadius: '2px',
-                  transition: 'width 0.1s linear',
-                }}
-              />
+
+            <div onClick={handleSeek} className={s.progressBarCont} role="progressbar">
+              <div className={s.progressBar} style={{ width: `${progress}%` }} />
             </div>
           </div>
         </div>

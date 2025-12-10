@@ -1,5 +1,6 @@
 'use client';
 import React, { memo } from 'react';
+import Image from 'next/image';
 import s from './AudioPlayer.module.scss';
 import { useAudio } from '@/contexts/AydioContext';
 
@@ -8,23 +9,21 @@ interface AudioPlayerProps {
   title: string;
   artist: string;
   cover: string;
-  id: number;
 }
 
-const AudioPlayerAlbum = memo<AudioPlayerProps>(
-  ({ src, title, artist, cover, id }) => {
+const AudioPlayer = memo<AudioPlayerProps>(
+  ({ src, title, artist, cover }) => {
     const { currentTrack, isPlaying, currentTime, duration, formatTime, playTrack, togglePlay } =
       useAudio();
 
     const isCurrentTrack = currentTrack?.audio === src;
     const isThisTrackPlaying = isPlaying && isCurrentTrack;
 
-    const handleClick = (e: React.MouseEvent) => {
-      e.preventDefault();
+    const handleClick = () => {
       if (isCurrentTrack) {
         togglePlay();
       } else {
-        playTrack({ title, artist, cover, audio: src });
+        playTrack({ title, artist, cover: cover || '', audio: src });
       }
     };
 
@@ -33,8 +32,8 @@ const AudioPlayerAlbum = memo<AudioPlayerProps>(
         <button
           onClick={handleClick}
           className={`${s.playButton} ${isThisTrackPlaying ? s.playing : ''}`}
-          aria-label={isThisTrackPlaying ? `Pause ${title}` : `Play ${title}`}>
-          <p className={s.player_id}>{id}</p>
+          aria-label={isThisTrackPlaying ? 'Pause' : 'Play'}>
+          <Image src={cover} alt="" width={60} height={60} loading="lazy" quality={75} />
 
           <div className={s.info}>
             <p className={s.title}>{title}</p>
@@ -42,9 +41,14 @@ const AudioPlayerAlbum = memo<AudioPlayerProps>(
           </div>
 
           <div className={s.controls}>
-            <span className={s.time}>{isCurrentTrack ? formatTime(currentTime) : '0:00'}</span>
-            <span className={s.timeSeparator}>-:-</span>
-            <span className={s.time}>{isCurrentTrack ? formatTime(duration) : '0:00'}</span>
+            {' '}
+            <span className={s.time}>
+              {isThisTrackPlaying ? formatTime(currentTime) : '0:00'}-:-
+            </span>{' '}
+            <span className={s.time}>
+              {' '}
+              {isThisTrackPlaying ? formatTime(duration) : formatTime(0)}{' '}
+            </span>{' '}
           </div>
         </button>
       </div>
@@ -55,12 +59,11 @@ const AudioPlayerAlbum = memo<AudioPlayerProps>(
       prev.src === next.src &&
       prev.title === next.title &&
       prev.artist === next.artist &&
-      prev.cover === next.cover &&
-      prev.id === next.id
+      prev.cover === next.cover
     );
   },
 );
 
-AudioPlayerAlbum.displayName = 'AudioPlayerAlbum';
+AudioPlayer.displayName = 'AudioPlayer';
 
-export default AudioPlayerAlbum;
+export default AudioPlayer;
