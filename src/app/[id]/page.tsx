@@ -1,8 +1,11 @@
+'use state';
+
 import songs from '../../db/songs.json';
 import albums from '../../db/albums.json';
 import Image from 'next/image';
 import AudioPlayer from '@/components/MyMusic/AudioPlayer';
-import { AudioProvider } from '@/contexts/AydioContext';
+import s from './Album.module.scss';
+import Link from 'next/link';
 
 export default async function AlbumPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -15,16 +18,32 @@ export default async function AlbumPage({ params }: { params: Promise<{ id: stri
   const albumTracks = songs.filter((song) => album.tracks.includes(song.id));
 
   return (
-    <AudioProvider>
-      <div style={{ padding: 40 }}>
-        <h1>{album.title}</h1>
-        <p>
-          {album.year} • {album.type}
-        </p>
+    <div
+      className={s.album}
+      style={{
+        background: `linear-gradient(180deg, ${album.color1} 0%, ${album.color2} 100%)`,
+      }}>
+      <div className={s.album_left}>
+        <Link href={'/'} className={s.album_left_button}>
+          Назад
+        </Link>
+      </div>
+      <div className={s.album_right}>
+        <div className={s.album_right_imgWrap}>
+          <Image src={album.cover} alt={album.title} width={250} height={250} />
+          <div className={s.album_right_imgWrap_titles}>
+            <p className={s.album_right_imgWrap_type}>{album.type}</p>
+            <h1 className={s.album_right_imgWrap_title}>{album.title}</h1>
+            <p className={s.album_right_imgWrap_autor}>
+              {album.author}{' '}
+              <span className={s.album_right_imgWrap_info}>
+                ▸ {album.year} ▸ {albumTracks.length} треков
+              </span>
+            </p>
+          </div>
+        </div>
 
-        <Image src={album.cover} alt={album.title} width={300} height={300} />
-
-        <h2 style={{ marginTop: 30 }}>Треки</h2>
+        <h2 className={s.album_text}>Треки</h2>
 
         <ul style={{ marginTop: 20 }}>
           {albumTracks.map((track) => (
@@ -39,6 +58,6 @@ export default async function AlbumPage({ params }: { params: Promise<{ id: stri
           ))}
         </ul>
       </div>
-    </AudioProvider>
+    </div>
   );
 }

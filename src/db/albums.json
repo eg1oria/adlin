@@ -3,32 +3,44 @@
     "id": 1,
     "title": "Album One",
     "year": 2022,
-    "type": "album",
+    "author": "ADLIN",
+    "type": "Альбом",
     "cover": "/album-img/album1.png",
+    "color1": "#172e2eff",
+    "color2": "#011019ff",
     "tracks": [1, 5, 7, 12]
   },
   {
     "id": 2,
     "title": "Album One",
+    "author": "ADLIN",
     "year": 2022,
-    "type": "album",
+    "type": "Альбом",
     "cover": "/album-img/album2.png",
-    "tracks": [1, 4, 12]
+    "color1": "#000a01ff",
+    "color2": "#0c1c04ff",
+    "tracks": [19, 20, 21, 22, 23, 24, 13, 25, 26, 27, 28, 29]
   },
   {
     "id": 3,
     "title": "Album One",
+    "author": "ADLIN",
     "year": 2022,
-    "type": "album",
+    "type": "Альбом",
     "cover": "/album-img/album3.png",
+    "color1": "#1d1522ff",
+    "color2": "#152421ff",
     "tracks": [1, 4, 7, 2]
   },
   {
     "id": 4,
     "title": "Album One",
+    "author": "ADLIN",
     "year": 2022,
-    "type": "album",
+    "type": "Альбом",
     "cover": "/album-img/album4.png",
+    "color1": "#171b19ff",
+    "color2": "#1f1920ff",
     "tracks": [13, 7, 12]
   }
 ]

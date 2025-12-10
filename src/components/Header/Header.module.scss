@@ -5,7 +5,9 @@
   width: 100%;
   position: fixed;
   border-bottom: 1px solid #3170d8;
-  z-index: 10;
+  height: 70px;
+  z-index: 999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 
   &_nav {
     display: flex;
@@ -41,6 +43,7 @@
       justify-content: center;
       background-color: transparent;
       padding: 8px;
+      color: #fff;
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.057);
@@ -102,4 +105,15 @@
   &:hover {
     height: 10px;
   }
+}
+
+.header.show {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.header.hide {
+  opacity: 1;
+  transform: translateY(0);
 }

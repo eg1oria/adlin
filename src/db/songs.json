@@ -160,5 +160,122 @@
     "duration": "2:29",
     "cover": "/songs-img/songs18.jpg",
     "audio": "/songs-audio/megapolis.mp3"
+  },
+  {
+    "id": 19,
+    "title": "Пустота",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/pustota.mp3"
+  },
+  {
+    "id": 20,
+    "title": "Everyday I Smoke A Lot",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/Everyday.mp3"
+  },
+  {
+    "id": 21,
+    "title": "Фальшивка",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/falshivka.mp3"
+  },
+  {
+    "id": 22,
+    "title": "Forever",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/forever.mp3"
+  },
+  {
+    "id": 23,
+    "title": "Мимо",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/mimo.mp3"
+  },
+  {
+    "id": 24,
+    "title": "Монекены",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/monekeny.mp3"
+  },
+  {
+    "id": 25,
+    "title": "Прочерк",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/procherk.mp3"
+  },
+  {
+    "id": 26,
+    "title": "Sorry",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/sorry.mp3"
+  },
+  {
+    "id": 27,
+    "title": "В моей голове",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/vgolove.mp3"
+  },
+  {
+    "id": 28,
+    "title": "Заново",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/zanovo.mp3"
+  },
+  {
+    "id": 29,
+    "title": "Jesus",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/jesus.mp3"
+  },
+  {
+    "id": 19,
+    "title": "Пустота",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/pustota.mp3"
+  },
+  {
+    "id": 19,
+    "title": "Пустота",
+    "artist": "АДЛИН",
+    "album": "Album Two",
+    "duration": "2:29",
+    "cover": "/album-img/album2.png",
+    "audio": "/songs-audio/pustota.mp3"
   }
 ]

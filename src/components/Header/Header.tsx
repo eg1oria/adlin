@@ -1,3 +1,5 @@
+'use client';
+
 import s from './Header.module.scss';
 import { Inter } from 'next/font/google';
 import instIcon from '../../../public/icons/icon-inst.svg';
@@ -9,6 +11,7 @@ import Image from 'next/image';
 import songs from '../../db/songs.json';
 import { useAudio } from '@/contexts/AydioContext';
 import { FaPause, FaPlay } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,6 +23,26 @@ const inter = Inter({
 export default function Header() {
   const { currentTrack, togglePlay, playTrack, isPlaying, currentTime, duration, seekTo } =
     useAudio();
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const hideAtPixels = 600;
+
+      if (scrollPosition >= hideAtPixels) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!duration) return;
@@ -54,6 +77,7 @@ export default function Header() {
     const nextTrack = songs[nextIndex];
     playTrack(nextTrack);
   }
+
   const handlePlay = () => {
     const randomSong = Math.floor(Math.random() * 5) + 1;
     if (currentTrack) {
@@ -70,8 +94,9 @@ export default function Header() {
         });
     }
   };
+
   return (
-    <header className={`${s.header} ${inter.className}`}>
+    <header className={`${s.header} ${inter.className} ${isVisible ? s.hide : s.show}`}>
       <div className={s.container}>
         <nav className={s.header_nav}>
           <ul className={s.header_nav_list}>
