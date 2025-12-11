@@ -9,8 +9,9 @@ const AudioPlayerAlbum = dynamic(
   () => import('../../components/AudioPlayerAlbum/AudioPlayerAlbum'),
 );
 
-export default function AlbumPage({ params }: { params: { id: string } }) {
-  const albumId = Number(params.id);
+export default async function AlbumPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const albumId = Number(id);
 
   const album = albums.find((a) => a.id === albumId);
 
