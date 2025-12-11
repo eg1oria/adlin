@@ -60,6 +60,21 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     setCurrentTime(0);
     audioRef.current.src = track.audio;
     audioRef.current.load();
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: track.title,
+        artist: track.artist,
+        album: 'ADLIN Music',
+        artwork: [
+          {
+            src: track.cover || '/default-cover.jpg',
+            sizes: '512x512',
+            type: 'image/jpeg/png',
+          },
+        ],
+      });
+    }
+
     audioRef.current
       .play()
       .then(() => setIsPlaying(true))
@@ -90,6 +105,34 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => {
+        audioRef.current?.play();
+      });
+
+      navigator.mediaSession.setActionHandler('pause', () => {
+        audioRef.current?.pause();
+      });
+
+      navigator.mediaSession.setActionHandler('previoustrack', () => {
+        if (!currentTrack) return;
+        const index = songs.findIndex((t) => t.audio === currentTrack.audio);
+        if (index > 0) {
+          playTrack(songs[index - 1]);
+        }
+      });
+
+      navigator.mediaSession.setActionHandler('nexttrack', () => {
+        if (!currentTrack) return;
+        const index = songs.findIndex((t) => t.audio === currentTrack.audio);
+        if (index !== -1 && index < songs.length - 1) {
+          playTrack(songs[index + 1]);
+        }
+      });
+    }
+  }, [currentTrack, playTrack]);
+
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -116,6 +159,12 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
       audio.removeEventListener('ended', onEnded);
     };
   }, [currentTrack, playTrack]);
+
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.playbackState = isPlaying ? 'playing' : 'paused';
+    }
+  }, [isPlaying]);
 
   const value = useMemo<AudioContextType>(
     () => ({
