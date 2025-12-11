@@ -1,0 +1,51 @@
+[
+  {
+    "id": 2,
+    "title": "Прости",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs21.jpg",
+    "audio": "/songs-audio/Прости.mp3"
+  },
+  {
+    "id": 3,
+    "title": "Robot",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs23.jpg",
+    "audio": "/songs-audio/Robot.mp3"
+  },
+  {
+    "id": 1,
+    "title": "Останься",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs8.png",
+    "audio": "/songs-audio/ostansa.mp3"
+  },
+  {
+    "id": 4,
+    "title": "Неправильно",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs13.jpg",
+    "audio": "/songs-audio/nepravilno.mp3"
+  },
+  {
+    "id": 5,
+    "title": "Dangerous",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs22.jpg",
+    "audio": "/songs-audio/Dangerous.mp3"
+  },
+  {
+    "id": 6,
+    "title": "Уходи",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs20.jpg",
+    "audio": "/songs-audio/Уходи.mp3"
+  },
+  {
+    "id": 7,
+    "title": "Иней",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs24.jpg",
+    "audio": "/songs-audio/Иней.mp3"
+  }
+]

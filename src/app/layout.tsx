@@ -4,6 +4,7 @@ import './globals.css';
 import { AudioProvider } from '@/contexts/AydioContext';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import PlayerHead from '@/components/PlayerHead/PlayerHead';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AudioProvider>
+          <PlayerHead />
           <Header />
           {children}
 

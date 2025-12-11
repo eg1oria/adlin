@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as *;
+
 .footer {
   width: 100%;
   background-color: #1e1e1e;
@@ -12,12 +14,33 @@
   &_container {
     width: 100%;
     padding: 40px 300px;
+
+    @include vp-1023 {
+      padding: 20px 100px;
+    }
+
+    @include vp-767 {
+      padding: 10px 50px;
+    }
+
+    @media (max-width: 310px) {
+      padding: 10px;
+    }
   }
 
   &_content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+
+    @include vp-767 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 310px) {
+      grid-template-columns: 1fr;
+    }
 
     &_col {
       display: flex;
@@ -29,11 +52,19 @@
         font-size: 24px;
         font-weight: 100;
         margin: 0 0 20px 0;
+
+        @include vp-500 {
+          font-size: 16px;
+        }
       }
 
       &_text {
         color: #7d7d7d;
         font-size: 15px;
+
+        @include vp-500 {
+          font-size: 12px;
+        }
       }
     }
   }

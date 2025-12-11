@@ -3,6 +3,8 @@
 import s from './MyMusic.module.scss';
 import Image from 'next/image';
 import songs from '../../db/songs.json';
+import lasts from '../../db/last.json';
+import singls from '../../db/singl.json';
 import albums from '../../db/albums.json';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -12,12 +14,46 @@ import 'swiper/css/pagination';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
 const AudioPlayer = dynamic(() => import('../AudioPlayerAlbum/AudioPlayer'), { ssr: false });
 
 export default function MyMusic() {
   const songsSlide1 = songs.slice(0, 9);
   const songsSlide2 = songs.slice(9, 18);
+  const [last, setLast] = useState(false);
+  const [singl, setSingl] = useState(false);
+  const [album, setAlbum] = useState(true);
+
+  const handleAlbum = () => {
+    if (album) {
+      setAlbum(false);
+    } else {
+      setAlbum(true);
+      setSingl(false);
+      setLast(false);
+    }
+  };
+
+  const handleLast = () => {
+    if (last) {
+      setLast(false);
+    } else {
+      setLast(true);
+      setAlbum(false);
+      setSingl(false);
+    }
+  };
+
+  const handleSingl = () => {
+    if (singl) {
+      setSingl(false);
+    } else {
+      setSingl(true);
+      setLast(false);
+      setAlbum(false);
+    }
+  };
 
   return (
     <div className={s.music}>
@@ -30,86 +66,138 @@ export default function MyMusic() {
         <div className={s.music_content}>
           <div className={s.music_content_albums}>
             <ul className={s.music_content_albums_filter}>
-              <li className={s.music_content_albums_filter_item}>Альбомы</li>
-              <li className={s.music_content_albums_filter_item}>Последние релизы</li>
-              <li className={s.music_content_albums_filter_item}>Синглы</li>
+              <button
+                className={s.music_content_albums_filter_item}
+                onClick={handleAlbum}
+                disabled={album}
+                style={{
+                  background: album ? '#ffffff22' : 'transparent',
+                }}>
+                Альбомы
+              </button>
+              <button
+                className={s.music_content_albums_filter_item}
+                onClick={handleLast}
+                disabled={last}
+                style={{
+                  background: last ? '#ffffff22' : 'transparent',
+                }}>
+                Популярные релизы
+              </button>
+              <button
+                className={s.music_content_albums_filter_item}
+                onClick={handleSingl}
+                disabled={singl}
+                style={{
+                  background: singl ? '#ffffff22' : 'transparent',
+                }}>
+                Синглы
+              </button>
             </ul>
             <div className={s.music_content_albums_list}>
-              {albums.map((album) => (
-                <Link
-                  href={`/${album.id}`}
-                  key={album.id}
-                  className={s.music_content_albums_list_item}>
-                  <div className={s.music_content_albums_list_item}>
-                    <div className={s.music_content_albums_list_item_image}>
-                      <Image
-                        src={album.cover}
-                        alt="Album Image"
-                        className={s.music_content_albums_list_item_image_url}
-                        width={500}
-                        height={500}
-                        loading="lazy"
-                      />
-                    </div>
-                    <p className={s.music_content_albums_list_item_title}>{album.title}</p>
-                    <div className={s.music_content_albums_list_item_infos}>
-                      <p className={s.music_content_albums_list_item_year}>{album.year}</p>
-                      <span className={s.music_content_albums_list_item_count}>
-                        {album.tracks.length} треков
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+              {album
+                ? albums.map((album) => (
+                    <Link
+                      href={`/${album.id}`}
+                      key={album.id}
+                      className={s.music_content_albums_list_item}>
+                      <div className={s.music_content_albums_list_item}>
+                        <div className={s.music_content_albums_list_item_image}>
+                          <Image
+                            src={album.cover}
+                            alt="Album Image"
+                            className={s.music_content_albums_list_item_image_url}
+                            width={500}
+                            height={500}
+                            loading="lazy"
+                          />
+                        </div>
+                        <p className={s.music_content_albums_list_item_title}>{album.title}</p>
+                        <div className={s.music_content_albums_list_item_infos}>
+                          <p className={s.music_content_albums_list_item_year}>{album.year}</p>
+                          <span className={s.music_content_albums_list_item_count}>
+                            {album.tracks.length} треков
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))
+                : null}
+
+              {last
+                ? lasts.map((last) => (
+                    <AudioPlayer
+                      key={last.id}
+                      src={last.audio}
+                      title={last.title}
+                      artist={last.artist}
+                      cover={last.cover}
+                    />
+                  ))
+                : null}
+
+              {singl
+                ? singls.map((sing) => (
+                    <AudioPlayer
+                      key={sing.id}
+                      src={sing.audio}
+                      title={sing.title}
+                      artist={sing.artist}
+                      cover={sing.cover}
+                    />
+                  ))
+                : null}
             </div>
           </div>
-          <div className={s.songsRelative}>
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={30}
-              slidesPerView={1}
-              loop
-              navigation={{
-                nextEl: '.custom-next',
-                prevEl: '.custom-prev',
-              }}>
-              <SwiperSlide>
-                <ul className={s.music_content_songs}>
-                  {songsSlide1.map((song) => (
-                    <li key={song.id} className={s.music_content_songs_item}>
-                      <AudioPlayer
-                        src={song.audio}
-                        title={song.title}
-                        artist={song.artist}
-                        cover={song.cover}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </SwiperSlide>
-              <SwiperSlide>
-                <ul className={s.music_content_songs}>
-                  {songsSlide2.map((song) => (
-                    <li key={song.id} className={s.music_content_songs_item}>
-                      <AudioPlayer
-                        src={song.audio}
-                        title={song.title}
-                        artist={song.artist}
-                        cover={song.cover}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </SwiperSlide>
-            </Swiper>
+          {!last && !singl ? (
+            <div className={s.songsRelative}>
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={30}
+                slidesPerView={1}
+                loop
+                navigation={{
+                  nextEl: '.custom-next',
+                  prevEl: '.custom-prev',
+                }}>
+                <SwiperSlide>
+                  <ul className={s.music_content_songs}>
+                    {songsSlide1.map((song) => (
+                      <li key={song.id} className={s.music_content_songs_item}>
+                        <AudioPlayer
+                          src={song.audio}
+                          title={song.title}
+                          artist={song.artist}
+                          cover={song.cover}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <ul className={s.music_content_songs}>
+                    {songsSlide2.map((song) => (
+                      <li key={song.id} className={s.music_content_songs_item}>
+                        <AudioPlayer
+                          src={song.audio}
+                          title={song.title}
+                          artist={song.artist}
+                          cover={song.cover}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </SwiperSlide>
+              </Swiper>
 
-            <button className={`${s.customPrev} custom-prev`}>
-              <IoIosArrowBack size={24} />
-            </button>
-            <button className={`${s.customNext} custom-next`}>
-              <IoIosArrowForward size={24} />
-            </button>
-          </div>
+              <button className={`${s.customPrev} custom-prev`}>
+                <IoIosArrowBack size={24} />
+              </button>
+              <button className={`${s.customNext} custom-next`}>
+                <IoIosArrowForward size={24} />
+              </button>
+            </div>
+          ) : null}
 
           <p className={s.music_content_sup}>
             [ Spotify | Yandex | VK music | Apple music | Youtube ]

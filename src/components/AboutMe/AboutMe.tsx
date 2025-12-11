@@ -84,7 +84,7 @@ export default function AboutMe() {
         </div>
 
         <div className={s.about_titles}>
-          <Image src={aboutTitle} alt="About Me" loading="lazy" />
+          <Image src={aboutTitle} alt="About Me" loading="lazy" className={s.about_titles_img} />
           <div className={s.about_infoBlock}>
             <p className={s.about_infoBlock_role}>ИСПОЛНИТЕЛЬ</p>
             <p className={s.about_infoBlock_name}>ADLIN</p>
@@ -92,14 +92,19 @@ export default function AboutMe() {
             <div className={s.about_infoBlock_buttons}>
               <button className={s.about_infoBlock_buttonPlay} onClick={handleCenterPlayPause}>
                 {isPlaying && currentTrack ? <FaPause size={15} /> : <FaPlay size={15} />}
-                {isPlaying && currentTrack ? 'Пауза' : 'Слушать'}
               </button>
-              <button className={s.about_infoBlock_buttonsSpotyf}>
-                <Image src={spotyIcon} alt="Spotify" />
-              </button>
-              <button className={s.about_infoBlock_buttonsY}>
-                <Image src={yIcon} alt="YouTube" />
-              </button>
+              <div className={s.about_infoBlock_buttons_soc}>
+                <a
+                  href="https://open.spotify.com/artist/3vw4wtxW7yv7yJSDqkIuUz?si=CzRq5YVKSFKsS2o6J40j9w"
+                  className={s.about_infoBlock_buttonsSpotyf}>
+                  <Image src={spotyIcon} alt="Spotify" />
+                </a>
+                <a
+                  href="https://music.yandex.ru/artist/7914739?ref_id=9B853EA2-C4FE-43E3-8CF3-3838F44CE3E0&utm_medium=copy_link"
+                  className={s.about_infoBlock_buttonsY}>
+                  <Image src={yIcon} alt="YouTube" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -122,7 +127,7 @@ export default function AboutMe() {
           <div className={s.about_content_center}>
             <div className={s.imageWrapper}>
               <Image
-                src={currentTrack?.cover || '/util/fallback.webp'}
+                src={currentTrack?.cover || '/util/fallback2.png'}
                 alt="Center Image"
                 fill
                 className={s.about_content_center_image}

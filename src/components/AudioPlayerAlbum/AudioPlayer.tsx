@@ -33,7 +33,15 @@ const AudioPlayer = memo<AudioPlayerProps>(
           onClick={handleClick}
           className={`${s.playButton} ${isThisTrackPlaying ? s.playing : ''}`}
           aria-label={isThisTrackPlaying ? 'Pause' : 'Play'}>
-          <Image src={cover} alt="" width={60} height={60} loading="lazy" quality={75} />
+          <Image
+            src={cover}
+            alt=""
+            width={60}
+            height={60}
+            loading="lazy"
+            className={s.playButton_img}
+            quality={75}
+          />
 
           <div className={s.info}>
             <p className={s.title}>{title}</p>

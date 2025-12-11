@@ -3,8 +3,6 @@
     "id": 1,
     "title": "Dead Inside",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "2:05",
     "cover": "/songs-img/songs10.png",
     "audio": "/songs-audio/deadInside.mp3"
   },
@@ -12,8 +10,6 @@
     "id": 2,
     "title": "No Love",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:07",
     "cover": "/songs-img/songs7.png",
     "audio": "/songs-audio/noLove.mp3"
   },
@@ -21,8 +17,6 @@
     "id": 3,
     "title": "Одна",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "2:04",
     "cover": "/songs-img/songs9.png",
     "audio": "/songs-audio/odna.mp3"
   },
@@ -30,8 +24,6 @@
     "id": 4,
     "title": "EX",
     "artist": "АДЛИН",
-    "album": "Album Three",
-    "duration": "2:17",
     "cover": "/songs-img/songs3.png",
     "audio": "/songs-audio/ex.mp3"
   },
@@ -39,8 +31,6 @@
     "id": 5,
     "title": "Зачем",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:49",
     "cover": "/songs-img/songs2.png",
     "audio": "/songs-audio/zachem.mp3"
   },
@@ -48,8 +38,6 @@
     "id": 6,
     "title": "Airport",
     "artist": "АДЛИН",
-    "album": "Album Three",
-    "duration": "2:42",
     "cover": "/songs-img/songs4.png",
     "audio": "/songs-audio/airport.mp3"
   },
@@ -57,8 +45,6 @@
     "id": 7,
     "title": "Чувства",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "2:34",
     "cover": "/songs-img/songs1.png",
     "audio": "/songs-audio/chuvstva.mp3"
   },
@@ -66,8 +52,6 @@
     "id": 8,
     "title": "Зима",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:45",
     "cover": "/songs-img/songs6.png",
     "audio": "/songs-audio/zima.mp3"
   },
@@ -75,8 +59,6 @@
     "id": 9,
     "title": "Забывай",
     "artist": "АДЛИН",
-    "album": "Album Three",
-    "duration": "2:55",
     "cover": "/songs-img/songs5.png",
     "audio": "/songs-audio/zabivai.mp3"
   },
@@ -84,8 +66,6 @@
     "id": 10,
     "title": "Lockscreen",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "4:20",
     "cover": "/songs-img/songs11.jpg",
     "audio": "/songs-audio/lockskreen.mp3"
   },
@@ -93,8 +73,6 @@
     "id": 11,
     "title": "New World",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "2:14",
     "cover": "/songs-img/songs12.jpg",
     "audio": "/songs-audio/nevWorld.mp3"
   },
@@ -102,8 +80,6 @@
     "id": 12,
     "title": "Неправильно",
     "artist": "АДЛИН",
-    "album": "Album Three",
-    "duration": "1:52",
     "cover": "/songs-img/songs13.jpg",
     "audio": "/songs-audio/nepravilno.mp3"
   },
@@ -111,8 +87,6 @@
     "id": 13,
     "title": "Broken Heart",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "2:09",
     "cover": "/songs-img/songs14.jpg",
     "audio": "/songs-audio/broken.mp3"
   },
@@ -120,8 +94,6 @@
     "id": 14,
     "title": "Останься",
     "artist": "АДЛИН",
-    "album": "Album One",
-    "duration": "2:08",
     "cover": "/songs-img/songs8.png",
     "audio": "/songs-audio/ostansa.mp3"
   },
@@ -129,8 +101,6 @@
     "id": 15,
     "title": "Перестал Мечтать",
     "artist": "АДЛИН",
-    "album": "Album Three",
-    "duration": "2:49",
     "cover": "/songs-img/songs15.jpg",
     "audio": "/songs-audio/perestal.mp3"
   },
@@ -138,8 +108,6 @@
     "id": 16,
     "title": "Destruction",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:12",
     "cover": "/songs-img/songs16.jpg",
     "audio": "/songs-audio/destruction.mp3"
   },
@@ -147,8 +115,6 @@
     "id": 17,
     "title": "Ночь",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:15",
     "cover": "/songs-img/songs17.jpg",
     "audio": "/songs-audio/noch.mp3"
   },
@@ -156,8 +122,6 @@
     "id": 18,
     "title": "Мегаполис",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/songs-img/songs18.jpg",
     "audio": "/songs-audio/megapolis.mp3"
   },
@@ -165,8 +129,6 @@
     "id": 19,
     "title": "Пустота",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/pustota.mp3"
   },
@@ -174,8 +136,6 @@
     "id": 20,
     "title": "Everyday I Smoke A Lot",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/Everyday.mp3"
   },
@@ -183,8 +143,6 @@
     "id": 21,
     "title": "Фальшивка",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/falshivka.mp3"
   },
@@ -192,8 +150,6 @@
     "id": 22,
     "title": "Forever",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/forever.mp3"
   },
@@ -201,8 +157,6 @@
     "id": 23,
     "title": "Мимо",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/mimo.mp3"
   },
@@ -210,8 +164,6 @@
     "id": 24,
     "title": "Монекены",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/monekeny.mp3"
   },
@@ -219,8 +171,6 @@
     "id": 25,
     "title": "Прочерк",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/procherk.mp3"
   },
@@ -228,8 +178,6 @@
     "id": 26,
     "title": "Sorry",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/sorry.mp3"
   },
@@ -237,8 +185,6 @@
     "id": 27,
     "title": "В моей голове",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/vgolove.mp3"
   },
@@ -246,8 +192,6 @@
     "id": 28,
     "title": "Заново",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album2.png",
     "audio": "/songs-audio/zanovo.mp3"
   },
@@ -255,8 +199,6 @@
     "id": 29,
     "title": "Jesus",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/jesus.mp3"
   },
@@ -264,8 +206,6 @@
     "id": 30,
     "title": "Вверх-вниз",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Вверх-вниз.mp3"
   },
@@ -273,8 +213,6 @@
     "id": 31,
     "title": "Зависть",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Зависть.mp3"
   },
@@ -282,8 +220,6 @@
     "id": 32,
     "title": "Мир иллюзий",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Мир иллюзий.mp3"
   },
@@ -291,8 +227,6 @@
     "id": 33,
     "title": "Мувы",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Мувы.mp3"
   },
@@ -300,8 +234,6 @@
     "id": 34,
     "title": "Не хочу",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Не хочу.mp3"
   },
@@ -309,8 +241,6 @@
     "id": 35,
     "title": "Одно и то же",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Одно и то же.mp3"
   },
@@ -318,8 +248,6 @@
     "id": 36,
     "title": "Оригами",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Оригами.mp3"
   },
@@ -327,8 +255,6 @@
     "id": 37,
     "title": "Придурок",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Придурок.mp3"
   },
@@ -336,8 +262,6 @@
     "id": 38,
     "title": "Эмоции",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Эмоции.mp3"
   },
@@ -345,8 +269,6 @@
     "id": 39,
     "title": "Perfect World",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album3.png",
     "audio": "/songs-audio/Perfect World.mp3"
   },
@@ -354,8 +276,6 @@
     "id": 40,
     "title": "Mood",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Mood.mp3"
   },
@@ -363,8 +283,6 @@
     "id": 41,
     "title": "Trap Teenager",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Trap Teenager.mp3"
   },
@@ -372,8 +290,6 @@
     "id": 42,
     "title": "Work on This",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Work on This.mp3"
   },
@@ -381,8 +297,6 @@
     "id": 43,
     "title": "Rocket",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Rocket.mp3"
   },
@@ -390,8 +304,6 @@
     "id": 44,
     "title": "Feedback",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Feedback.mp3"
   },
@@ -399,8 +311,6 @@
     "id": 45,
     "title": "DDOS",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/DDOS.mp3"
   },
@@ -408,8 +318,6 @@
     "id": 46,
     "title": "Что ты знаешь про любовь",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Что ты знаешь про любовь_.mp3"
   },
@@ -417,8 +325,6 @@
     "id": 47,
     "title": "Упустил шанс",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Упустил шанс.mp3"
   },
@@ -426,8 +332,6 @@
     "id": 48,
     "title": "Суета",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Суета.mp3"
   },
@@ -435,8 +339,6 @@
     "id": 49,
     "title": "Навсегда",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Навсегда.mp3"
   },
@@ -444,8 +346,6 @@
     "id": 50,
     "title": "Музыка мой дом",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Музыка мой дом.mp3"
   },
@@ -453,8 +353,6 @@
     "id": 51,
     "title": "Записка",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/Записка.mp3"
   },
@@ -462,8 +360,6 @@
     "id": 52,
     "title": "А что, если уйду",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album1.png",
     "audio": "/songs-audio/А что, если уйду_.mp3"
   },
@@ -471,8 +367,6 @@
     "id": 53,
     "title": "No Stress",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/No Stress.mp3"
   },
@@ -480,8 +374,6 @@
     "id": 54,
     "title": "Double Cup",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Double Cup.mp3"
   },
@@ -489,8 +381,6 @@
     "id": 55,
     "title": "Bipolar Disorder",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Bipolar Disorder.mp3"
   },
@@ -498,8 +388,6 @@
     "id": 56,
     "title": "Bipolar Disorder Intro",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Bipolar Disorder Intro.mp3"
   },
@@ -507,8 +395,6 @@
     "id": 57,
     "title": "Не могу",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Не могу.mp3"
   },
@@ -516,8 +402,6 @@
     "id": 58,
     "title": "Не дети",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Не дети.mp3"
   },
@@ -525,8 +409,6 @@
     "id": 59,
     "title": "Момент",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Момент.mp3"
   },
@@ -534,8 +416,6 @@
     "id": 60,
     "title": "Грустный Uber",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Грустный Uber.mp3"
   },
@@ -543,8 +423,6 @@
     "id": 61,
     "title": "Враг",
     "artist": "АДЛИН",
-    "album": "Album Two",
-    "duration": "2:29",
     "cover": "/album-img/album4.png",
     "audio": "/songs-audio/Враг.mp3"
   }

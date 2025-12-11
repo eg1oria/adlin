@@ -42,9 +42,14 @@ const AudioPlayerAlbum = memo<AudioPlayerProps>(
           </div>
 
           <div className={s.controls}>
-            <span className={s.time}>{isCurrentTrack ? formatTime(currentTime) : '0:00'}</span>
-            <span className={s.timeSeparator}>-:-</span>
-            <span className={s.time}>{isCurrentTrack ? formatTime(duration) : '0:00'}</span>
+            {' '}
+            <span className={s.time}>
+              {isThisTrackPlaying ? formatTime(currentTime) : '0:00'}-:-
+            </span>{' '}
+            <span className={s.time}>
+              {' '}
+              {isThisTrackPlaying ? formatTime(duration) : formatTime(0)}{' '}
+            </span>{' '}
           </div>
         </button>
       </div>

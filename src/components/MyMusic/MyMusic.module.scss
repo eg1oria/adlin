@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as *;
+
 .music {
   width: 100%;
   background: linear-gradient(180deg, #161616 0%, #333333 100%);
@@ -9,6 +11,10 @@
 
     &_tag {
       color: white;
+
+      @include vp-500 {
+        font-size: 12px;
+      }
     }
   }
 
@@ -25,6 +31,16 @@
       grid-template-columns: repeat(3, 1fr);
       padding: 30px 20px;
       gap: 20px;
+
+      @include vp-767 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include vp-500 {
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin: 10px 0 0 0;
+      }
 
       position: relative;
 
@@ -74,9 +90,24 @@
         gap: 50px;
         padding: 0 20px;
 
+        @include vp-767 {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        @include vp-500 {
+          grid-template-columns: 1fr;
+          padding: 0;
+        }
+
         &_item {
           display: flex;
           flex-direction: column;
+          opacity: 0.9;
+
+          &:hover {
+            opacity: 1;
+          }
 
           &_image {
             width: 100%;
@@ -106,8 +137,21 @@
         display: flex;
         gap: 40px;
 
+        @include vp-500 {
+          gap: 10px;
+        }
+
         &_item {
-          color: #7d7d7d;
+          color: #9e9e9e;
+          border-radius: 12px;
+          padding: 5px 15px;
+          cursor: pointer;
+          transition: background 0.2s linear;
+
+          @include vp-500 {
+            padding: 5px;
+            font-size: 14px;
+          }
         }
       }
     }
@@ -117,6 +161,10 @@
 .container {
   width: 100%;
   padding: 33px 42px;
+
+  @include vp-767 {
+    padding: 20px 10px;
+  }
 }
 .songsRelative {
   position: relative;
@@ -136,6 +184,11 @@
   display: flex;
   align-items: center;
   transition: background-color 0.3s;
+
+  @include vp-767 {
+    height: 0;
+    opacity: 0;
+  }
 }
 
 .customPrev:hover,
@@ -145,8 +198,23 @@
 
 .customPrev {
   left: -40px;
+
+  @include vp-767 {
+    left: 0;
+  }
 }
 
 .customNext {
   right: -40px;
+
+  @include vp-767 {
+    right: 0;
+  }
+}
+
+.border {
+  width: 100%;
+  background-color: #ffffff28;
+  margin: 20px 0 0 0;
+  height: 2px;
 }

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Останься",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs8.png",
+    "audio": "/songs-audio/ostansa.mp3"
+  },
+  {
+    "id": 2,
+    "title": "Dead Inside",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs10.png",
+    "audio": "/songs-audio/deadInside.mp3"
+  },
+  {
+    "id": 3,
+    "title": "No Love",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs7.png",
+    "audio": "/songs-audio/noLove.mp3"
+  },
+  {
+    "id": 4,
+    "title": "Зачем",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs2.png",
+    "audio": "/songs-audio/zachem.mp3"
+  },
+  {
+    "id": 5,
+    "title": "Одна",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs9.png",
+    "audio": "/songs-audio/odna.mp3"
+  },
+  {
+    "id": 6,
+    "title": "Зима",
+    "artist": "АДЛИН",
+    "cover": "/songs-img/songs6.png",
+    "audio": "/songs-audio/zima.mp3"
+  }
+]
