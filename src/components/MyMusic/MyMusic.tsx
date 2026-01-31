@@ -156,6 +156,7 @@ export default function MyMusic() {
                 spaceBetween={30}
                 slidesPerView={1}
                 loop
+                centeredSlides={false}
                 navigation={{
                   nextEl: '.custom-next',
                   prevEl: '.custom-prev',
